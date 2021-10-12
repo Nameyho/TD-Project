@@ -2,18 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TowerController : MonoBehaviour
+public class BalisticTower : Tower 
 {
     #region  Exposed
+
+    [Header("Specificité Balistique")]
     [SerializeField]
-    private GameObject _towerPrefab;
+    protected GameObject _Nose;
 
     [SerializeField]
-    private GameObject _Nose;
-    [SerializeField]
     private GameObject _bulletPrefab;
+
     [SerializeField]
     private float _delayshoot;
+
     private float _nextShotTime;
 
     [SerializeField]
@@ -23,6 +25,11 @@ public class TowerController : MonoBehaviour
     private float _destroyBullet;
     #endregion
 
+    #region private
+
+    private Transform _transform;
+
+    #endregion
 
     #region Unity API
     private void OnTriggerStay(Collider other)
@@ -34,23 +41,24 @@ public class TowerController : MonoBehaviour
                 FireBullet(other);
                 _nextShotTime = Time.time + _delayshoot;
             }
-            _towerPrefab.gameObject.transform.LookAt(other.transform);
-        }
-
-
-
+            _transform.gameObject.transform.LookAt(other.transform);
+        }    
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Mob"))
         {
-            _towerPrefab.gameObject.transform.LookAt(other.transform);
+            _transform.gameObject.transform.LookAt(other.transform);
         }
 
 
     }
 
+    private void Awake()
+    {
+        _transform = GetComponent<Transform>();
+    }
     #endregion
 
 
@@ -68,4 +76,5 @@ public class TowerController : MonoBehaviour
 
     #endregion
 
+ 
 }
