@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mobName: 
   _HealthPoint: 0
+  _mobElement: 2
 --- !u!1001 &6203463884162053723
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23,7 +24,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1656350130264164, guid: 5423795e6dfd69e4f89c48865dba38bc, type: 3}
       propertyPath: m_Name
-      value: SM_Pawn_Weapon_Male_02
+      value: SM_Pawn_Weapon_Male_02 Variant
       objectReference: {fileID: 0}
     - target: {fileID: 4843438260029586, guid: 5423795e6dfd69e4f89c48865dba38bc, type: 3}
       propertyPath: m_RootOrder
